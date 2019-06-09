@@ -10,7 +10,7 @@
 pip install pywin32
 ```
 
-4.配置pywin32.
+4. 配置pywin32.  
 
 ```bash
 cd ~\AppData\Local\Programs\Python\Python37\Lib\site-packages\win32com\client
