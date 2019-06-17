@@ -3,7 +3,7 @@ import win32com
 from win32com import client
 import VBAPI
 import tkinter
-from tkinter import *
+from tkinter import scrolledtext, messagebox, filedialog, Tk, Button, Entry, Label
 import os
 
 CREO_APP = 'C:/PTC/Creo 2.0/Parametric/bin/parametric.exe'
