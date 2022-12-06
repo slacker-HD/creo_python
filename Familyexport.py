@@ -1,9 +1,7 @@
 # -*- coding: utf8 -*-
-import win32com
 from win32com import client
 import VBAPI
-import tkinter
-from tkinter import scrolledtext, messagebox, filedialog, Tk, Button, Entry, Label
+from tkinter import messagebox, filedialog, Tk, Button, Entry, Label
 import os
 
 CREO_APP = 'C:/PTC/Creo 2.0/Parametric/bin/parametric.exe'
@@ -12,15 +10,15 @@ OUTPUT_DIR = 'D:/test/'
 
 win = Tk()
 win.title("批量将文件的族表对象导出到文件")
-win.resizable(0, 0)
+win.resizable(False, False)
 
 Label(win, text="Creo程序路径").grid(row=0, column=0, sticky='W')
 Label(win, text="要导出的文件").grid(row=1, column=0, sticky='W')
 Label(win, text="导出目录").grid(row=2, column=0, sticky='W')
 
-e1 = Entry(win, width="45")
-e2 = Entry(win, width="45")
-e3 = Entry(win, width="45")
+e1 = Entry(win, width=45)
+e2 = Entry(win, width=45)
+e3 = Entry(win, width=45)
 e1.grid(row=0, column=1, padx=5, pady=5)
 e2.grid(row=1, column=1, padx=5, pady=5)
 e3.grid(row=2, column=1, padx=5, pady=5)
@@ -46,12 +44,12 @@ def convert():
         instmodel = familyTableRow.CreateInstance()
         instmodel.Copy("m_" + instmodel.InstanceName + ".prt", None)
     AsyncConnection.End()
-    tkinter.messagebox.showinfo('提示', '文件已导出完毕')
+    messagebox.showinfo('提示', '文件已导出完毕')
     os.startfile(OUTPUT_DIR)
 
 
 def chooseapp():
-    filename = tkinter.filedialog.askopenfilename()
+    filename = filedialog.askopenfilename()
     if filename != '':
         CREO_APP = filename
         e1.delete('0', 'end')
@@ -59,7 +57,7 @@ def chooseapp():
 
 
 def choosepart():
-    filename = tkinter.filedialog.askopenfilename()
+    filename = filedialog.askopenfilename()
     if filename != '':
         PART_DIR = filename
         e2.delete('0', 'end')
@@ -67,7 +65,7 @@ def choosepart():
 
 
 def choosedir():
-    dirname = tkinter.filedialog.askdirectory()
+    dirname = filedialog.askdirectory()
     if dirname != '':
         OUTPUT_DIR = dirname
         e3.delete('0', 'end')

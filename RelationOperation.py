@@ -1,23 +1,21 @@
 # -*- coding: utf8 -*-
-import win32com
 from win32com import client
 import VBAPI
-import os
 from tkinter import scrolledtext, messagebox, filedialog, Tk, Button, Entry, Label
 CREO_APP = 'C:/PTC/Creo 2.0/Parametric/bin/parametric.exe'
 INPUT_DIR = 'D:/test/'
 
 win = Tk()
 win.title("批量关系操作")
-win.resizable(0, 0)
+win.resizable(False, False)
 
 Label(win, text="Creo程序路径", padx=5, pady=5).grid(row=0, column=0, sticky='W')
 Label(win, text="包含prt文件的目录", padx=5, pady=5).grid(row=1, column=0, sticky='W')
 Label(win, text="在此编辑关系：", padx=5, pady=5).grid(row=2, column=0, sticky='W', columnspan=3)
 
 
-e1 = Entry(win, width="55")
-e2 = Entry(win, width="55")
+e1 = Entry(win, width=55)
+e2 = Entry(win, width=55)
 e1.grid(row=0, column=1, padx=5, pady=5)
 e2.grid(row=1, column=1, padx=5, pady=5)
 e1.insert(0, CREO_APP)
